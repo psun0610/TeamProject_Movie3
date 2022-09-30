@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- 리뷰 목록 페이지 -->
+<div class="d-flex align-items-center justify-content-between">
+  <h1 class="my-4 fs-2 d-inline-block">Review</h1>
+  <a href="{% url 'movie:write' %}" type="button" class="btn btn-outline-secondary" style="border-radius: 0.9rem">리뷰작성</a>
+</div>
+
+<div class="mb-5">
+  {% for review in reviews %}
+  <a href="{% url 'movie:content' review.pk %}">
+    <div class="content-cont mt-0 mb-4">
+      <div class="mb-3 d-flex justify-content-between align-items-center">
+        <p class="mb-1"><b>ID {{ review.pk }}</b></p>
+        <div>
+          <p class="m-0">{{ review.created_at }}</p>
+        </div>
+      </div>
+      <div>
+        <h1 class="mb-2 fs-2">{{ review.title }}</h1>
+        <p class="mb-2 index-star">{{ review.star }}</p>
+        <p class="mb-4">{{ review.content }}</p>
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content-cont pt-4">
+  <div class="mb-1 d-flex justify-content-between align-items-center">
+    <p class="d-inline-block me-2 align-self-end">ID {{ review.pk }}</p>
+    <div>
+      <div class="mb-2" style="text-align: right;">
+        <a href="{% url 'movie:edit' review.pk %}" class="me-2 text-secondary">수정</a>
+        <a href="{% url 'movie:delete' review.pk %}" class="text-secondary" onclick="return confirm('삭제하시겠습니까?');" id="del">삭제</a>
+      </div>
+      <div>
+        <p class="m-0">작성 | {{ review.created_at }}</p>
+        <p class="m-0">수정 | {{ review.updated_at }}</p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="d-flex justify-content-between">
+      <h1 class="mb-2 fs-2 d-inline-block">{{ review.title }}</h1>
+    </div>
+    <p class="mb-2 index-star">{{ review.star }}</p>
+    <p class="mb-4">{{ review.content }}</p>
+  </div>
+  <div>
+    <div class="mybtn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+      </svg> {{ review.hits }}
+    </div>
+    <div class="mybtn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chat-left-text-fill" viewBox="0 0 16 16">
+        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
+      </svg> 0 <!--댓글 수로 수정-->
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="my-4 fs-2">Create a Review</h1>
+<form action="{% url 'movie:write_sec' %}" name="review_form" id="myform">
+  <div class="form-floating">
+    <input type="text" maxlength="80" name="title" class="form-control" style="border-radius: 1.7rem; padding-left: 1rem" placeholder="Leave a comment here" id="floatingTextarea2">
+    <label for="floatingTextarea2" style="padding-left: 1rem">제목</label>
+  </div>
+
+  <!--별점-->
+  <fieldset class="my-3">
+    <input type="radio" name="star" value="⭐⭐⭐⭐⭐" id="rate1"><label for="rate1">⭐</label>
+    <input type="radio" name="star" value="⭐⭐⭐⭐" id="rate2"><label for="rate2">⭐</label>
+    <input type="radio" name="star" value="⭐⭐⭐" id="rate3"><label for="rate3">⭐</label>
+    <input type="radio" name="star" value="⭐⭐" id="rate4"><label for="rate4">⭐</label>
+    <input type="radio" name="star" value="⭐" id="rate5"><label for="rate5">⭐</label>
+  </fieldset>
+
+  <div class="form-floating">
+    <textarea name="content" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 380px; border-radius: 1.7rem; padding-left: 1rem; padding-right: 1rem;"></textarea>
+    <label for="floatingTextarea2" style="padding-left: 1rem">내용</label>
+  </div>
+  <div class="mt-4 d-flex justify-content-end">
+    <button type="submit" onclick="empty_check()" class="btn btn-outline-secondary" style="border-radius: 0.9rem">작성완료</button>
+  </div>
+</form>
+<script>
+  // function empty_check() {
+  //   if(review_form.title.value=="") {
+  //     alert("제목을 입력하세요")
+  //     review_form.title.focus();
+  //     return false;
+  //   }
+  //   else if(review_form.content.value=="") {
+  //     alert("내용을 입력하세요")
+  //     review_form.content.focus();
+  //     return false;
+  //   }
+  //   return true;
+  // }
+  review_form.addEventListener("submit", function(e){
+    if (review_form.title.value==""){
+      alert("제목을 입력하세요");
+      review_form.title.focus();
+      e.preventDefault();
+    }
+    else if (review_form.content.value==""){
+      alert("내용을 입력하세요");
+      review_form.content.focus();
+      e.preventDefault();
+    }
+  });
+</script>
+{% endblock %}
