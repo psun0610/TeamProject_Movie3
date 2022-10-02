@@ -21,6 +21,7 @@ a:hover {
 
 }
 /* form.html */
+/* 별점 css */
 #myform fieldset{
     display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
     direction: rtl; /* 이모지 순서 반전 */
