@@ -26,30 +26,30 @@
   </div>
 </form>
 <script>
-  // function empty_check() {
-  //   if(review_form.title.value=="") {
-  //     alert("제목을 입력하세요")
-  //     review_form.title.focus();
-  //     return false;
-  //   }
-  //   else if(review_form.content.value=="") {
-  //     alert("내용을 입력하세요")
-  //     review_form.content.focus();
-  //     return false;
-  //   }
-  //   return true;
-  // }
-  review_form.addEventListener("submit", function(e){
-    if (review_form.title.value==""){
-      alert("제목을 입력하세요");
+  function empty_check() {
+    if(review_form.title.value=="") {
+      alert("제목을 입력하세요")
       review_form.title.focus();
-      e.preventDefault();
+      return false;
     }
-    else if (review_form.content.value==""){
-      alert("내용을 입력하세요");
+    else if(review_form.content.value=="") {
+      alert("내용을 입력하세요")
       review_form.content.focus();
-      e.preventDefault();
+      return false;
     }
-  });
+    return true;
+  }
+  // review_form.addEventListener("submit", function(e){
+  //   if (review_form.title.value==""){
+  //     alert("제목을 입력하세요");
+  //     review_form.title.focus();
+  //     e.preventDefault();
+  //   }
+  //   else if (review_form.content.value==""){
+  //     alert("내용을 입력하세요");
+  //     review_form.content.focus();
+  //     e.preventDefault();
+  //   }
+  // });
 </script>
 {% endblock %}
